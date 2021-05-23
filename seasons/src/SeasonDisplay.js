@@ -1,13 +1,9 @@
 import React from 'react';
 
-const SeasonDisplay = ({ lat, errorMessage }) => {
-  return (
-    <div>
-      Latitude: {lat}
-      <br />
-      Error: {errorMessage}
-    </div>
-  );
+const SeasonDisplay = ({ lat, err }) => {
+  console.log(err);
+
+  return <div>{lat && !err ? `Latitude: ${lat}` : `Error: ${err}`}</div>;
 };
 
 export default SeasonDisplay;
