@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-// import Dropdown from './Components/Dropdown';
 import Translate from './Components/Translate';
-// import Search from './Components/Search';
-// import Accordion from './Components/Accordion';
+import Accordion from './Components/Accordion';
+import Dropdown from './Components/Dropdown';
+import Search from './Components/Search';
+import Route from './Components/Route';
+import Header from './Components/Header';
 
-// const items = [
-//   {
-//     title: 'What is React?',
-//     content: 'React is a front end javascript framework.',
-//   },
-//   {
-//     title: 'Why use React?',
-//     content: 'React is a favorite JS library among engineers.',
-//   },
-//   {
-//     title: 'How do you use React?',
-//     content: 'You use React by creating components.',
-//   },
-// ];
+const items = [
+  {
+    title: 'What is React?',
+    content: 'React is a front end javascript framework.',
+  },
+  {
+    title: 'Why use React?',
+    content: 'React is a favorite JS library among engineers.',
+  },
+  {
+    title: 'How do you use React?',
+    content: 'You use React by creating components.',
+  },
+];
 
 const options = [
   { label: 'The Color Red', value: 'red' },
@@ -26,9 +28,28 @@ const options = [
 ];
 
 export default () => {
+  const [selected, setSelected] = useState(options[0]);
+
   return (
     <div className="ui container" style={{ marginTop: '10px' }}>
-      <Translate />
+      <Header />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          label="Select a Color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
