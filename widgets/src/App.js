@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Dropdown from './Components/Dropdown';
+// import Dropdown from './Components/Dropdown';
+import Translate from './Components/Translate';
 // import Search from './Components/Search';
 // import Accordion from './Components/Accordion';
 
@@ -25,14 +26,9 @@ const options = [
 ];
 
 export default () => {
-  const [selected, setSelected] = useState(options[0]);
   return (
-    <div>
-      <Dropdown
-        selected={selected}
-        onSelectedChange={setSelected}
-        options={options}
-      />
+    <div className="ui container" style={{ marginTop: '10px' }}>
+      <Translate />
     </div>
   );
 };
