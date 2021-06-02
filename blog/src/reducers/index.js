@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
-
-const replaceMe = (state = 'hello world') => {
-  return 'hello there';
-};
+import postsReducer from './postsReducer';
 
 export default combineReducers({
-  replaceMe,
+  posts: postsReducer,
 });
